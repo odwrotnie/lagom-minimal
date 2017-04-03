@@ -11,7 +11,7 @@ abstract class LagomApp(context: LagomApplicationContext)
     with AhcWSComponents {
 
   override lazy val lagomServer: LagomServer = LagomServer.forServices(
-    bindService.to(new LagomService(persistentEntityRegistry))
+    bindService[LagomServiceAPI].to(new LagomService(persistentEntityRegistry))
   )
 
   override lazy val jsonSerializerRegistry = SerializerRegistry
